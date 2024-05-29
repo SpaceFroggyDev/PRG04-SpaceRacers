@@ -1,12 +1,17 @@
-import { ImageSource, Sound, Resource, Loader } from 'excalibur'
+import { ImageSource, Sound, Resource, Loader, FontSource } from 'excalibur'
+import { TitleScreen } from './titlescreen'
+import { VictoryScreen } from './victoryscreen'
 
 // voeg hier jouw eigen resources toe
 const Resources = {
-    Fish: new ImageSource('images/fish.png')
+    PlayerOne: new ImageSource('images/playerone.png'),
+    PlayerTwo: new ImageSource('images/playertwo.png'),
+    RaceTrack: new ImageSource('images/racetrackbg.png'),
+    TitleScreenImg: new ImageSource('images/titlescreen.png'),
+    VictoryScreenImg: new ImageSource('images/victoryscreen.png'),
+    PixelFont: new FontSource('fonts/PressStart2P-Regular.ttf', 'PressStart'),
+    RaceTrackMusic: new Sound('sound/racetrack.mp3')
 }
-
-
-
 
 const ResourceLoader = new Loader()
 for (let res of Object.values(Resources)) {
