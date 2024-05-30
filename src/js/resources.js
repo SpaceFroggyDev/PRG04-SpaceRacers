@@ -10,7 +10,9 @@ const Resources = {
     TitleScreenImg: new ImageSource('images/titlescreen.png'),
     VictoryScreenImg: new ImageSource('images/victoryscreen.png'),
     PixelFont: new FontSource('fonts/PressStart2P-Regular.ttf', 'PressStart'),
-    RaceTrackMusic: new Sound('sound/racetrack.mp3')
+    RaceTrackMusic: new Sound('sound/racetrack.mp3'),
+    VictoryMusic: new Sound('sound/victory.mp3'),
+    MenuMusic: new Sound('sound/mainmenu.mp3')
 }
 
 const ResourceLoader = new Loader()

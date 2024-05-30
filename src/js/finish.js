@@ -12,6 +12,5 @@ export class Finish extends Actor {
         }
     onInitialize(engine) {
         this.pos = new Vector(-555 , 118)
-        // -568,118 , -524,118
     }
 }

@@ -3,11 +3,10 @@ import { Resources, ResourceLoader } from './resources.js'
 export class UI extends ScreenElement {
 
       scoreText
-      timeScore = 999
 
     onInitialize(engine) {
         this.scoreText = new Label({
-            text: `Score: ${this.timeScore}`,
+            text: `Score: 0${this.scene.engine.timeScore}`,
             pos: new Vector(10, 10),
              font: Resources.PixelFont.toFont({
                 unit: FontUnit.Px,

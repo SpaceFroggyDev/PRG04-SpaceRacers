@@ -16,7 +16,6 @@ export class PlayerOne extends Actor {
   }
   onInitialize(engine) {
     this.graphics.use(Resources.PlayerOne.toSprite());
-    this.pos = new Vector(-570, 140);
     this.rotation = 1.6;
     this.scene.camera.strategy.lockToActor(this)
     this.on('collisionstart', (event) => this.hitSomething(event))
@@ -52,19 +51,14 @@ export class PlayerOne extends Actor {
     this.vel = direction;
   }
 
-  onPostUpdate(){
-    // console.log(`x: ${this.pos.x}, y: ${this.pos.y}`)
-    // console.log(this.rotation)
-  }
-
   hitSomething(event){
 
         if (event.other instanceof Finish) {
             if ((hitPointsChecked > 4) && (finished === false)) {
-              console.log("finished!")
-              console.log(this.scene)
-              finished = true
+              //finished = true
               this.scene.finishScene()
+              this.scene.engine.p1wins = true
+              hitPointsChecked = 0
             }
         }
         if (event.other instanceof WayPoint) {

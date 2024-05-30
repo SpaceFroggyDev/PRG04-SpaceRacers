@@ -6,7 +6,6 @@ import { Level } from './level.js'
 import { VictoryScreen } from './victoryscreen.js'
 
 export class Game extends Engine {
-
     constructor() {
         super({ 
             width: 400,
@@ -22,6 +21,10 @@ export class Game extends Engine {
          })
         this.start(ResourceLoader).then(() => this.startGame())
     }
+
+    timeScore = 999
+    p1wins = false
+    p2wins = false
 
     startGame() {
         this.add('level', new Level())

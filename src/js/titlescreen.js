@@ -10,11 +10,12 @@ export class TitleScreen extends Scene {
         titlescreenimg.pos =  new Vector(200,112.5)
     }
     onActivate(ctx) {
-       
+       Resources.MenuMusic.play(0.5)
     }
     onPreUpdate(engine){
         if (engine.input.keyboard.wasPressed(Keys.Space)) {
             this.engine.goToScene('level')
+            Resources.MenuMusic.stop()
         }
     }
 }

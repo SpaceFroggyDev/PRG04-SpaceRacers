@@ -4,6 +4,7 @@ import { Finish } from "./finish.js";
 import { WayPoint } from "./waypoint.js";
 
 let hitPointsChecked = 0;
+let finished = false;
 
 export class PlayerTwo extends Actor {
   constructor() {
@@ -15,7 +16,6 @@ export class PlayerTwo extends Actor {
   }
   onInitialize(engine) {
     this.graphics.use(Resources.PlayerTwo.toSprite());
-    this.pos = new Vector(-540, 140);
     this.rotation = 1.6;
     this.on('collisionstart', (event) => this.hitSomething(event))
   }
@@ -50,8 +50,11 @@ export class PlayerTwo extends Actor {
   hitSomething(event){
 
         if (event.other instanceof Finish) {
-            if (hitPointsChecked > 4) {
-              console.log("finished!")
+            if ((hitPointsChecked > 4) && (finished === false)) {
+              //finished = true
+              this.scene.finishScene()
+              this.scene.engine.p2wins = true
+              hitPointsChecked = 0
             }
         }
         if (event.other instanceof WayPoint) {

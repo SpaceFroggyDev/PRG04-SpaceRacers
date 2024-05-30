@@ -9,18 +9,24 @@ import { UI } from './ui.js'
 
 
 export class Level extends Scene {
+    
+    timeScore 
+    playerone
+    playertwo
+
     onInitialize(engine) {
 
         this.ui = new UI()
         this.add(this.ui)
+        // this.timeScore = this.engine.timeScore
 
         this.timer = new Timer({
-            fcn: () => this.ui.scoreText.text = `Score: 0${this.ui.timeScore--}`,
+            fcn: () => this.ui.scoreText.text = `Score: 0${this.engine.timeScore--}`,
             interval: 100,
             repeats: true
         })
         this.add(this.timer)
-        this.timer.start()
+  
 
         let racetrack = new RaceTrack()
         this.add(racetrack)
@@ -28,11 +34,11 @@ export class Level extends Scene {
         let finish = new Finish()
         this.add(finish)
 
-        let playerone = new PlayerOne()
-        this.add(playerone)
+        // let playerone = new PlayerOne()
+        // this.add(playerone)
 
-        let playertwo = new PlayerTwo()
-        this.add(playertwo)
+        // let playertwo = new PlayerTwo()
+        // this.add(playertwo)
 
         let waypoint1 = new WayPoint()
         waypoint1.pos = new Vector(1,-250)
@@ -56,11 +62,24 @@ export class Level extends Scene {
 
     }
     onActivate(ctx) {
-        Resources.RaceTrackMusic.play()
+        Resources.RaceTrackMusic.play(0.5)
+        this.engine.timeScore = 999
+
+        this.playerone = new PlayerOne()
+        this.playerone.pos = new Vector(-570, 140);
+        this.add(this.playerone)
+
+        this.playertwo = new PlayerTwo()
+        this.playertwo.pos = new Vector(-540, 140);
+        this.add(this.playertwo)
+
+        this.timer.start()
     }
     finishScene(){
         this.engine.goToScene('victoryscreen')
         Resources.RaceTrackMusic.stop()
         this.timer.stop()
+        this.playerone.kill()
+        this.playertwo.kill()
     }
 }
