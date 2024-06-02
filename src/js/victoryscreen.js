@@ -1,5 +1,6 @@
 import { Actor, Engine, Vector, DisplayMode, Input, Keys, Scene, Camera, Label, Font, FontUnit, Color} from "excalibur"
 import { Resources, ResourceLoader } from './resources.js'
+import { VictoryBg } from './victorybg.js'
 import { UI } from './ui.js'
 
 export class VictoryScreen extends Scene {
@@ -11,10 +12,8 @@ export class VictoryScreen extends Scene {
     finalScore
 
     onInitialize(engine) {
-        const victoryscreenimg = new Actor()
-        this.add(victoryscreenimg)
-        victoryscreenimg.graphics.use(Resources.VictoryScreenImg.toSprite())
-        victoryscreenimg.pos =  new Vector(200,112.5)
+        this.victoryimg = new VictoryBg()
+        this.add(this.victoryimg)
 
     }
     onActivate(ctx) {
@@ -33,8 +32,8 @@ export class VictoryScreen extends Scene {
         }
 
         this.finalScore = new Label({
-        text:`Your score is 0${this.engine.timeScore}`,
-        pos: new Vector(110, 150),
+        text:`Score: 0${this.engine.timeScore}`,
+        pos: new Vector(250, 50),
         font: Resources.PixelFont.toFont({
         unit: FontUnit.Px,
         size: 10,
@@ -43,8 +42,8 @@ export class VictoryScreen extends Scene {
         })
 
         this.highScoreLabel = new Label({
-        text:`Your highscore is 0${this.highscore}`,
-        pos: new Vector(110, 50),
+        text:`Highscore: 0${this.highscore}`,
+        pos: new Vector(50, 50),
         font: Resources.PixelFont.toFont({
         unit: FontUnit.Px,
         size: 10,
@@ -54,10 +53,10 @@ export class VictoryScreen extends Scene {
 
         this.winnerLabel = new Label({
         text:`Player ${this.winner} wins!`,
-        pos: new Vector(110, 100),
+        pos: new Vector(60, 120),
         font: Resources.PixelFont.toFont({
         unit: FontUnit.Px,
-        size: 10,
+        size: 20,
         color: Color.White
             })
         })
@@ -68,6 +67,14 @@ export class VictoryScreen extends Scene {
     }
     onPreUpdate(engine){
         if (engine.input.keyboard.wasPressed(Keys.Space)) {
+            this.engine.goToScene('level2')
+            Resources.VictoryMusic.stop()
+            this.winnerLabel.kill()
+            this.highScoreLabel.kill()
+            this.finalScore.kill()
+        }
+
+        if (engine.input.keyboard.wasPressed(Keys.Enter)) {
             this.engine.goToScene('titlescreen')
             Resources.VictoryMusic.stop()
             this.winnerLabel.kill()

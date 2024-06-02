@@ -17,5 +17,10 @@ export class TitleScreen extends Scene {
             this.engine.goToScene('level')
             Resources.MenuMusic.stop()
         }
+
+        if (engine.input.keyboard.wasPressed(Keys.Enter)) {
+            this.engine.goToScene('controlsscreen')
+            Resources.MenuMusic.stop()
+        }
     }
 }

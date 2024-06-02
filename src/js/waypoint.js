@@ -10,8 +10,4 @@ export class WayPoint extends Actor {
          });
          this.body.collisionType = CollisionType.Passive;
         }
-    onInitialize(engine) {
-        //this.pos = new Vector(1,-250)
-        // 730, -140
-    }
 }

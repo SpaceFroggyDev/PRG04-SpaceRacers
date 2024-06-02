@@ -4,7 +4,6 @@ import { Finish } from "./finish.js";
 import { WayPoint } from "./waypoint.js";
 
 let hitPointsChecked = 0;
-let finished = false;
 
 export class PlayerOne extends Actor {
   constructor() {
@@ -42,7 +41,7 @@ export class PlayerOne extends Actor {
       this.rotation -= 0.05;
     }
 
-    // direction is the cosine/sine of the angle!
+    // direction / vel fix
     let direction = new Vector(
       Math.cos(this.rotation) * speed,
       Math.sin(this.rotation) * speed
@@ -54,8 +53,7 @@ export class PlayerOne extends Actor {
   hitSomething(event){
 
         if (event.other instanceof Finish) {
-            if ((hitPointsChecked > 4) && (finished === false)) {
-              //finished = true
+            if (hitPointsChecked > 4) {
               this.scene.finishScene()
               this.scene.engine.p1wins = true
               hitPointsChecked = 0
@@ -63,7 +61,6 @@ export class PlayerOne extends Actor {
         }
         if (event.other instanceof WayPoint) {
             hitPointsChecked++;
-            console.log(hitPointsChecked)
         }
       }
   

@@ -18,7 +18,6 @@ export class Level extends Scene {
 
         this.ui = new UI()
         this.add(this.ui)
-        // this.timeScore = this.engine.timeScore
 
         this.timer = new Timer({
             fcn: () => this.ui.scoreText.text = `Score: 0${this.engine.timeScore--}`,
@@ -33,12 +32,6 @@ export class Level extends Scene {
 
         let finish = new Finish()
         this.add(finish)
-
-        // let playerone = new PlayerOne()
-        // this.add(playerone)
-
-        // let playertwo = new PlayerTwo()
-        // this.add(playertwo)
 
         let waypoint1 = new WayPoint()
         waypoint1.pos = new Vector(1,-250)
