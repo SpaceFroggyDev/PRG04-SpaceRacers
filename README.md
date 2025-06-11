@@ -1,18 +1,15 @@
-# Excalibur Startproject 2024
+# SpaceRacers
 
-- Vanaf de HR repository: klik op USE THIS TEMPLATE. Kies jouw eigen github account. 
-- Kopieer de `git url` van jouw eigen repository (dit vind je onder de "code" button).
-- Open VS Code. Klik op "file" en kies "clone repository".
-- Sla het op in `xampp/htdocs/programmeren4/mijnproject`.
-- Typ `npm install` en `npm run dev` in de terminal in VS Code.
-- Installeer de [Chrome Excalibur Debugger](https://chromewebstore.google.com/detail/excalibur-dev-tools/dinddaeielhddflijbbcmpefamfffekc)
-- [🔥 Bekijk het instructie filmpje!](https://youtu.be/UIVpe4L5_P4)
+This is a game I made for my creative media and game technologies studies, its a very small game but I hope you enjoy it nonetheless since I put a lot of effort into it. Made this all with Excalibur using JavaScript. Thank you very much for checking out my work!
 
-## Schermafmeting
+Controls
+Player 1: Press W to go forward, S to go backwards. Use A and D to turn.
 
-In game.js geef je een schermafmeting aan in 16/9 verhouding. Als je game heel groot is moeten je afbeeldingen ook groter / scherper zijn. Een kleine game kan je op een groot scherm tonen met `displayMode: DisplayMode.FitScreen`. Een aantal geschikte afmetingen:
+Player 2: Press ↑ to go forward, ↓ to go backwards. Use ← and → to turn.
 
-- 800 x 450
-- 1280 x 720 
-- 1600 x 900 
-- 1920 x 1080
+Music Credits
+Main Menu - Heterophony by Glitch 
+
+Racetrack - Fast And Intense by Electronic Senses 
+
+Victory Screen - Banger by FSM Team
